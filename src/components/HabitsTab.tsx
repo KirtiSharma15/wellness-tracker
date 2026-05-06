@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import type { Habit, HabitLogs } from '../types'
+
+type NewHabitDraft = Omit<Habit, 'id'>
 import { EMOJI_OPTIONS, COLOR_OPTIONS } from '../constants'
 import { todayStr, getStreak } from '../utils'
 import { HabitWeekGrid } from './Charts'
 interface Props { habits: Habit[]; habitLogs: HabitLogs; onSaveLogs: (l: HabitLogs) => void; onSaveHabits: (h: Habit[]) => void }
-const BLANK = { label:'', emoji:'✨', unit:'min', type:'more' as const, target:30, color:'#8b5e3c' }
+const BLANK: NewHabitDraft = { label: '', emoji: '✨', unit: 'min', type: 'more', target: 30, color: '#8b5e3c' }
 export default function HabitsTab({ habits, habitLogs, onSaveLogs, onSaveHabits }: Props) {
-  const [inputs,setInputs]=useState<Record<string,string|boolean>>({});const [date,setDate]=useState(todayStr());const [flash,setFlash]=useState(false);const [showAdd,setShowAdd]=useState(false);const [newH,setNewH]=useState({...BLANK})
+  const [inputs,setInputs]=useState<Record<string,string|boolean>>({});const [date,setDate]=useState(todayStr());const [flash,setFlash]=useState(false);const [showAdd,setShowAdd]=useState(false);const [newH,setNewH]=useState<NewHabitDraft>(BLANK)
   const handleLog=()=>{
     if(!habits.some(h=>inputs[h.id]!==undefined&&inputs[h.id]!==''))return
     const u={...habitLogs}
