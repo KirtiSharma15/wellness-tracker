@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #fdf6ee;
+  font-family: Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  /* safe area for iPhone notch */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── Typography helpers ────────────────────────────────────────── */
+.mono-xs {
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  color: #a08060;
+}
+.mono-sm {
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  color: #8b5e3c;
+}
+.serif-lg {
+  font-size: 21px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+.upper { text-transform: uppercase; letter-spacing: 0.12em; }
+
+/* ── Layout cards ──────────────────────────────────────────────── */
+.card {
+  background: #fff9f2;
+  border: 1px solid #e8d4bc;
+  border-radius: 13px;
+  padding: 15px;
+  margin-bottom: 12px;
+}
+
+.list-card {
+  background: #fff9f2;
+  border: 1px solid #e8d4bc;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  padding: 9px 13px;
+  transition: background 0.1s;
+}
+.list-row:hover { background: #f0e8da; }
+
+.stat-card {
+  flex: 1;
+  min-width: 84px;
+  background: #fff9f2;
+  border: 1px solid #e8d4bc;
+  border-radius: 11px;
+  padding: 11px 12px;
+}
+
+.metric-card {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 9px;
+  border: 1.5px solid #e8d4bc;
+  background: #fff9f2;
+  transition: box-shadow 0.15s;
+}
+.metric-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.07); }
+
+.meal-card {
+  border-radius: 13px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: box-shadow 0.18s;
+}
+.meal-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.09); }
+
+.habit-row {
+  background: #fff9f2;
+  border: 1.5px solid #e8d4bc;
+  border-radius: 12px;
+  padding: 13px 14px;
+  margin-bottom: 9px;
+  transition: box-shadow 0.15s;
+}
+.habit-row:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.07); }
+
+/* ── Info boxes ────────────────────────────────────────────────── */
+.info-box {
+  border-radius: 12px;
+  padding: 11px 13px;
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  line-height: 1.65;
+}
+.info-box.green  { background: #f0f8f4; border: 1px solid #52b78840; color: #1a5c38; }
+.info-box.amber  { background: #fff3e0; border: 1px solid #f4c06a;   color: #7a4a10; }
+.info-box.blue   { background: #f0f4ff; border: 1px solid #4361ee30; color: #2040a0; }
+
+/* ── Form inputs ───────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1.5px solid #dcc8b0;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #fdf6ee;
+  font-family: 'DM Mono', monospace;
+  color: #1a0d05;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input:focus {
+  outline: none;
+  border-color: #8b5e3c;
+  box-shadow: 0 0 0 2px rgba(139,94,60,0.12);
+}
+textarea:focus {
+  outline: none;
+  border-color: #8b5e3c;
+  box-shadow: 0 0 0 2px rgba(139,94,60,0.12);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btn-primary {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
+  white-space: nowrap;
+  background: #8b5e3c;
+  color: #fdf6ee;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-primary:hover  { background: #6b4020; }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { background: #d4c4b0; cursor: default; }
+
+.btn-secondary {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
+  background: #e8d4bc;
+  color: #1a0d05;
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: #d4bca0; }
+
+.btn-del {
+  font-size: 10px;
+  background: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+}
+.btn-cancel {
+  font-size: 10px;
+  background: #e8d4bc;
+  color: #1a0d05;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-family: 'DM Mono', monospace;
+}
+.btn-x {
+  background: none;
+  border: none;
+  color: #dcc8b0;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+.btn-x:hover { color: #c0392b; }
+
+.btn-dashed {
+  background: transparent;
+  color: #8b5e3c;
+  border: 1.5px dashed #c8a882;
+  border-radius: 9px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  margin-top: 4px;
+  transition: background 0.15s;
+}
+.btn-dashed:hover { background: #f5ede0; }
+
+/* ── Mobile safe area bottom padding ───────────────────────────── */
+@media (max-width: 600px) {
+  body { font-size: 14px; }
+}
+
+/* ── PWA install banner (shown by vite-plugin-pwa) ─────────────── */
+#pwa-toast {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 16px;
+  padding: 12px 20px;
+  border: 1px solid #e8d4bc;
+  border-radius: 12px;
+  background: #1a0d05;
+  color: #fdf6ee;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  z-index: 9999;
+  display: none;
+}
+#pwa-toast.show { display: flex; gap: 12px; align-items: center; }
+#pwa-toast button { background: #8b5e3c; border: none; color: white; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 11px; }
